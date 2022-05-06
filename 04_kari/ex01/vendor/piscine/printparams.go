@@ -6,10 +6,7 @@ import (
 )
 
 func PrintParams() {
-	for i, s := range os.Args {
-		if i == 0 {
-			continue
-		}
+	for _, s := range os.Args[1:] {
 		PrintlnStr(s)
 	}
 }

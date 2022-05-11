@@ -5,7 +5,7 @@ func FindNextPrime(nb int) int {
 		return 2
 	}
 	i := nb
-	for ; i <= 2147483647; i++ {
+	for ; ; i++ {
 		if isPrime(i) {
 			break ;
 		}

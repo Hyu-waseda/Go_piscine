@@ -19,4 +19,7 @@ func main() {
 	fmt.Println(8, piscine.IterativeFactorial(8))
 	fmt.Println(9, piscine.IterativeFactorial(9))
 	fmt.Println(10, piscine.IterativeFactorial(10))
+	fmt.Println(20, piscine.IterativeFactorial(20))
+	fmt.Println(21, piscine.IterativeFactorial(21))
+	fmt.Println(22, piscine.IterativeFactorial(22))
 }

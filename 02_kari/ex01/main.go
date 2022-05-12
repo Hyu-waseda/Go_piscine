@@ -19,4 +19,6 @@ func main() {
 	fmt.Println(8, piscine.RecursiveFactorial(8))
 	fmt.Println(9, piscine.RecursiveFactorial(9))
 	fmt.Println(10, piscine.RecursiveFactorial(10))
+	fmt.Println(20, piscine.RecursiveFactorial(20))
+	fmt.Println(21, piscine.RecursiveFactorial(21))
 }

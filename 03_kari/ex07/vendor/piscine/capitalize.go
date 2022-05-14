@@ -4,38 +4,25 @@ func Capitalize(s string) string {
 	ret := ""
 	top := true
 	for _, v := range []rune(s) {
-		RuneAddBack(&ret, v, &top)
+		runeAddBack(&ret, v, &top)
 	}
 	return ret
 }
 
-func RuneAddBack(s *string, v rune, top *bool) {
+func runeAddBack(s *string, v rune, top *bool) {
 	if *top {
-		if IsAlNum(v) {
-			if 'a' <= v && v <= 'z' {
-				*s += string(int(v) + 'A' - 'a')
-			} else {
-				*s += string(v)
-			}
-			*top = false
-		} else {
-			*s += string(v)
-		}
+		*s += ToUpper(string(v))
 	} else {
-		if IsAlNum(v) {
-			if 'A' <= v && v <= 'Z' {
-				*s += string(int(v) + 'a' - 'A')
-			} else {
-				*s += string(v)
-			}
-		} else {
-			*s += string(v)
-			*top = true
-		}
+		*s += ToLower(string(v))
+	}
+	if *top == true && isAlNum(v) {
+		*top = false
+	} else if *top == false && !isAlNum(v) {
+		*top = true
 	}
 }
 
-func IsAlNum(v rune) bool {
+func isAlNum(v rune) bool {
 	if ('A' <= v && v <= 'Z') ||
 		('a' <= v && v <= 'z') ||
 		('0' <= v && v <= '9') {

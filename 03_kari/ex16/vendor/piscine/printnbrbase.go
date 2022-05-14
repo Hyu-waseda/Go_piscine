@@ -3,29 +3,30 @@ package piscine
 import "ft"
 
 func PrintNbrBase(nbr int, base string) {
-	if !Validate(base) {
-		PrintStr("NV")
+	if !validate(base) {
+		printStr("NV")
 		return
 	}
+	n := uint(nbr)
 	if nbr < 0 {
-		nbr *= -1
+		n = uint(-1*nbr)
 		ft.PrintRune('-')
 	}
-	PrintNbrBase2(nbr, base)
+	printNbrBase2(n, base)
 }
 
-func Validate(base string) bool {
-	if StrLen(base) < 2 {
+func validate(base string) bool {
+	if strLen(base) < 2 {
 		return false
-	} else if HaveSign(base) {
+	} else if haveSign(base) {
 		return false
-	} else if !IsUnique(base) {
+	} else if !isUnique(base) {
 		return false
 	}
 	return true
 }
 
-func StrLen(s string) int {
+func strLen(s string) int {
 	len := 0
 	for i, _ := range []rune(s) {
 		len = i + 1
@@ -33,7 +34,7 @@ func StrLen(s string) int {
 	return len
 }
 
-func HaveSign(s string) bool {
+func haveSign(s string) bool {
 	for _, c := range []rune(s) {
 		if c == '+' || c == '-' {
 			return true
@@ -42,7 +43,7 @@ func HaveSign(s string) bool {
 	return false
 }
 
-func IsUnique(s string) bool {
+func isUnique(s string) bool {
 	var same int
 	for _, c1 := range []rune(s) {
 		same = 0
@@ -58,18 +59,18 @@ func IsUnique(s string) bool {
 	return true
 }
 
-func PrintNbrBase2(nbr int, base string) {
-	if nbr < StrLen(base) {
-		ft.PrintRune([]rune(base)[nbr])
-		return
-	}
-	PrintNbrBase2(nbr/StrLen(base), base)
-	nbr %= StrLen(base)
-	ft.PrintRune([]rune(base)[nbr])
-}
-
-func PrintStr(s string) {
+func printStr(s string) {
 	for _, v := range []rune(s) {
 		ft.PrintRune(v)
 	}
+}
+
+func printNbrBase2(nbr uint, base string) {
+	if nbr < uint(strLen(base)) {
+		ft.PrintRune([]rune(base)[nbr])
+		return
+	}
+	printNbrBase2(nbr/uint(strLen(base)), base)
+	nbr %= uint(strLen(base))
+	ft.PrintRune([]rune(base)[nbr])
 }

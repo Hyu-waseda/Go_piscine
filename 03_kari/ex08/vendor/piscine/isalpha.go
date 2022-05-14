@@ -2,14 +2,14 @@ package piscine
 
 func IsAlpha(s string) bool {
 	for _, v := range []rune(s) {
-		if IsAlNum(v) == false {
+		if !isAlNum(v) {
 			return false
 		}
 	}
 	return true
 }
 
-func IsAlNum(v rune) bool {
+func isAlNum(v rune) bool {
 	if ('A' <= v && v <= 'Z') ||
 		('a' <= v && v <= 'z') ||
 		('0' <= v && v <= '9') {

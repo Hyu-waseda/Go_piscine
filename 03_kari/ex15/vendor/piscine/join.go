@@ -2,12 +2,11 @@ package piscine
 
 func Join(strs []string, sep string) string {
 	ret := ""
-	for _, s := range strs {
-		ret += s
-		ret += sep
-	}
 	if StrsLen(strs) == 0 {
 		return ret
+	}
+	for _, s := range strs {
+		ret += s + sep
 	}
 	ret = ret[:StrLen(ret) - StrLen(sep)]
 	return ret

@@ -5,7 +5,6 @@ func FirstRune(s string) rune {
 		if i == 0 {
 			return []rune(s)[0]
 		} 
-
 	}
 	return 0
 }

@@ -1,24 +1,24 @@
 package piscine
 
 func AtoiBase(s string, base string) int {
-	if !Validate(base) {
+	if !validate(base) {
 		return 0
 	}
-	return BaseConv(s, base)
+	return baseConv(s, base)
 }
 
-func Validate(base string) bool {
-	if StrLen(base) < 2 {
+func validate(base string) bool {
+	if strLen(base) < 2 {
 		return false
-	} else if HaveSign(base) {
+	} else if haveSign(base) {
 		return false
-	} else if !IsUnique(base) {
+	} else if !isUnique(base) {
 		return false
 	}
 	return true
 }
 
-func StrLen(s string) int {
+func strLen(s string) int {
 	len := 0
 	for i, _ := range []rune(s) {
 		len = i + 1
@@ -26,7 +26,7 @@ func StrLen(s string) int {
 	return len
 }
 
-func HaveSign(s string) bool {
+func haveSign(s string) bool {
 	for _, c := range []rune(s) {
 		if c == '+' || c == '-' {
 			return true
@@ -35,7 +35,7 @@ func HaveSign(s string) bool {
 	return false
 }
 
-func IsUnique(s string) bool {
+func isUnique(s string) bool {
 	var same int
 	for _, c1 := range []rune(s) {
 		same = 0
@@ -51,24 +51,24 @@ func IsUnique(s string) bool {
 	return true
 }
 
-func BaseConv(s string, base string) int {
+func baseConv(s string, base string) int {
 	ret := 0
-	power := FirstPower(s, base)
+	power := firstPower(s, base)
 	for _, c := range []rune(s) {
 		for i, cBase := range []rune(base) {
 			if cBase == c {
 				ret += i * power
-				power /= StrLen(base)
+				power /= strLen(base)
 			}
 		}
 	}
 	return ret
 }
 
-func FirstPower(s string, base string) int {
+func firstPower(s string, base string) int {
 	ret := 1
-	for i := 0; i < StrLen(s)-1; i++ {
-		ret *= StrLen(base)
+	for i := 0; i < strLen(s)-1; i++ {
+		ret *= strLen(base)
 	}
 	return ret
 }

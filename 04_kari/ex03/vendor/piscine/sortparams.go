@@ -7,19 +7,19 @@ import (
 
 func SortParams() {
 	args := os.Args[1:]
-	for i := 0; i < StrsLen(args); i++ {
-		for j := i + 1; j < StrsLen(args); j++ {
+	for i := 0; i < strsLen(args); i++ {
+		for j := i + 1; j < strsLen(args); j++ {
 			if args[i] > args[j] {
 				args[i], args[j] = args[j] , args[i]
 			}
 		}
 	}
 	for _, s := range args {
-		PrintlnStr(s)
+		printlnStr(s)
 	}
 }
 
-func StrsLen(strs []string) int {
+func strsLen(strs []string) int {
 	len := 0
 	for i, _ := range strs {
 		len = i + 1
@@ -27,7 +27,7 @@ func StrsLen(strs []string) int {
 	return len
 }
 
-func PrintlnStr(s string) {
+func printlnStr(s string) {
 	for _, c := range []rune(s) {
 		ft.PrintRune(c)
 	}

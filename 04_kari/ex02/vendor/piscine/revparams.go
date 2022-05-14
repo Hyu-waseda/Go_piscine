@@ -6,12 +6,12 @@ import (
 )
 
 func RevParams() {
-	for i := StrsLen(os.Args) - 1; i >= 1; i-- {
-		PrintlnStr(os.Args[i])
+	for i := strsLen(os.Args) - 1; i >= 1; i-- {
+		printlnStr(os.Args[i])
 	}
 }
 
-func StrsLen(strs []string) int {
+func strsLen(strs []string) int {
 	len := 0
 	for i, _ := range strs {
 		len = i + 1
@@ -19,7 +19,7 @@ func StrsLen(strs []string) int {
 	return len
 }
 
-func PrintlnStr(s string) {
+func printlnStr(s string) {
 	for _, c := range []rune(s) {
 		ft.PrintRune(c)
 	}

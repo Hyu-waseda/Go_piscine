@@ -6,10 +6,10 @@ import (
 )
 
 func PrintProgramName() {
-	PrintlnStr(os.Args[0][2:])
+	printlnStr(os.Args[0][2:])
 }
 
-func PrintlnStr(s string) {
+func printlnStr(s string) {
 	for _, c := range []rune(s) {
 		ft.PrintRune(c)
 	}

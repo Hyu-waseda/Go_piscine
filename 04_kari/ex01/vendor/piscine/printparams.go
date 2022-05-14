@@ -7,11 +7,11 @@ import (
 
 func PrintParams() {
 	for _, s := range os.Args[1:] {
-		PrintlnStr(s)
+		printlnStr(s)
 	}
 }
 
-func PrintlnStr(s string) {
+func printlnStr(s string) {
 	for _, c := range []rune(s) {
 		ft.PrintRune(c)
 	}

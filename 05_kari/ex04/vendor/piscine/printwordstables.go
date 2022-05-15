@@ -3,16 +3,16 @@ package piscine
 import "fmt"
 
 func PrintWordsTables(s []string) {
-	fmt.Println(ConcatParams(s))
+	fmt.Println(concatParams(s))
 }
 
-func ConcatParams(args []string) string {
+func concatParams(args []string) string {
 	ret := ""
 	for _, s := range(args) {
 		ret += s + "\n"
 	}
 	if ret != "" {
-		ret = ret[:StrLen(ret)-1]
+		ret = ret[:strLen(ret)-1]
 	}
 	return ret
 }
@@ -21,34 +21,34 @@ func SplitWhiteSpaces(s string) []string {
 	ret := []string{}
 	top := true
 	for i, c := range []rune(s) {
-		if IsWhiteSpace(c) {
+		if isWhiteSpace(c) {
 			top = true
 			continue
 		} else if top {
-			ret = append(ret, s[i:NextSepIndex(s, i)])
+			ret = append(ret, s[i:nextSepIndex(s, i)])
 			top = false
 		}
 	}
 	return ret
 }
 
-func IsWhiteSpace(c rune) bool {
+func isWhiteSpace(c rune) bool {
 	if c == ' ' || c == '\t' || c == '\n' {
 		return true
 	}
 	return false
 }
 
-func NextSepIndex(s string, i int) int {
+func nextSepIndex(s string, i int) int {
 	for j, c := range []rune(s) {
-		if IsWhiteSpace(c) && i < j{
+		if isWhiteSpace(c) && i < j{
 			return j
 		}
 	}
-	return StrLen(s)
+	return strLen(s)
 }
 
-func StrLen(s string) int {
+func strLen(s string) int {
 	len := 0
 	for i, _ := range []rune(s) {
 		len = i + 1

@@ -6,12 +6,12 @@ func ConcatParams(args []string) string {
 		ret += s + "\n"
 	}
 	if ret != "" {
-		ret = ret[:StrLen(ret)-1]
+		ret = ret[:strLen(ret)-1]
 	}
 	return ret
 }
 
-func StrLen(s string) int {
+func strLen(s string) int {
 	len := 0
 	for i, _ := range s {
 		len = i + 1

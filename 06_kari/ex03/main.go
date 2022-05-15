@@ -1,10 +1,7 @@
 package main
 
-import (
-	"piscine"
-	"fmt"
-)
+import "piscine"
 
 func main() {
-	fmt.Printf("%#v\n", piscine.SplitWhiteSpaces("Hello how are you?"))
+	piscine.Cat()
 }

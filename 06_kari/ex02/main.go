@@ -1,11 +1,7 @@
 package main
 
-import (
-	"piscine"
-	"fmt"
-)
+import "piscine"
 
 func main() {
-	test := []string{"Hello", "how", "are", "you?"}
-    fmt.Println(piscine.ConcatParams(test))
+	piscine.DisplayFile()
 }

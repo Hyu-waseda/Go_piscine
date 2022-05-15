@@ -1,11 +1,19 @@
 package main
 
-import (
-	"piscine"
-	"fmt"
-)
+import "fmt"
+
+type point struct {
+	x int
+	y int
+}
+
+func setPoint(ptr *point) {
+	ptr.x = 42
+	ptr.y = 21
+}
 
 func main() {
-	fmt.Println(piscine.MakeRange(5, 10))
-	fmt.Println(piscine.MakeRange(10, 5))
+	points := &point{}
+	setPoint(points)
+	fmt.Printf("x = %d, y = %d\n",points.x, points.y)
 }

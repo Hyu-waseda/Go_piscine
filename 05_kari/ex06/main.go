@@ -3,23 +3,20 @@ package main
 import (
 	"piscine"
 	"fmt"
-	"strings"
+	//"strings"
 )
 
 func main() {
-	s := "HelloHAhowHAareHAyou?"
-	fmt.Printf("%#v\n", piscine.Split(s, "HA"))
-	fmt.Printf("%#v\n", strings.Split(s, "HA"))
-	s = "HA"
-	fmt.Printf("%#v\n", piscine.Split(s, "HA"))
-	fmt.Printf("%#v\n", strings.Split(s, "HA"))
-	s = "HAHAHA"
-	fmt.Printf("%#v\n", piscine.Split(s, "HA"))
-	fmt.Printf("%#v\n", strings.Split(s, "HA"))
-	s = ""
-	fmt.Printf("%#v\n", piscine.Split(s, "HA"))
-	fmt.Printf("%#v\n", strings.Split(s, "HA"))
-	s = "HelloHAhowHAareHAyou?"
-	fmt.Printf("%#v\n", piscine.Split(s, ""))
-	fmt.Printf("%#v\n", strings.Split(s, ""))
+	fmt.Printf("%#v\n", piscine.Split("HelloHAhowHAareHAyou?", "HA"))
+	//fmt.Printf("%#v\n", strings.Split("HelloHAhowHAareHAyou?", "HA"))
+	fmt.Printf("%#v\n", piscine.Split("HA", "HA"))
+	//fmt.Printf("%#v\n", strings.Split("HA", "HA"))
+	fmt.Printf("%#v\n", piscine.Split("HAHAHA", "HA"))
+	//fmt.Printf("%#v\n", strings.Split("HAHAHA", "HA"))
+	fmt.Printf("%#v\n", piscine.Split("", "HA"))
+	//fmt.Printf("%#v\n", strings.Split("", "HA"))
+	fmt.Printf("%#v\n", piscine.Split("HelloHAhowHAareHAyou?", ""))
+	//fmt.Printf("%#v\n", strings.Split("HelloHAhowHAareHAyou?", ""))
+	fmt.Printf("%#v\n", piscine.Split("", ""))
+	//fmt.Printf("%#v\n", strings.Split("", ""))
 }

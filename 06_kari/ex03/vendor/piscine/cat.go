@@ -9,20 +9,18 @@ func Cat() {
 	switch strsLen(os.Args) - 1 {
 	case 0:
 		catStdin()
-	case 1:
-		catFile(os.Args[1])
 	default:
-		printlnStr("Too many arguments")
+		catFiles()
 	}
 }
 
 func catStdin() {
-	arr := [2048]byte{}
+	arr := [1024]byte{}
 	buf := arr[:]
 	for {
 		n, err := os.Stdin.Read(buf)
 		if err != nil {
-			printlnStr("stdin error")
+			os.Exit(1)
 		}
 		if n == 0 {
 			buf = arr[:]
@@ -31,6 +29,15 @@ func catStdin() {
 	}
 }
 
+func catFiles() {
+	err := false
+	for _, file := range os.Args[1:] {
+		err = catFile(file) || err
+	}
+	if err {
+		os.Exit(1)
+	}
+}
 
 func printStr(s string) {
 	for _, v := range []rune(s) {

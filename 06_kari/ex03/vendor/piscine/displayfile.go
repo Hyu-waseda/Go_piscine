@@ -31,11 +31,12 @@ func printlnStr(s string) {
 	ft.PrintRune('\n')
 }
 
-func catFile(file string) {
+func catFile(file string) bool {
 	f, err := os.ReadFile(file)
 	if err != nil {
-		printlnStr("displayfile: " + file + ": No such file or directory")
-		return
+		printlnStr("ERROR: open " + file + ": no such file or directory")
+		return true
 	}
 	os.Stdout.Write(f)
+	return false
 }

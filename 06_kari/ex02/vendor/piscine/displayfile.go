@@ -34,8 +34,9 @@ func printlnStr(s string) {
 func catFile(file string) {
 	f, err := os.ReadFile(file)
 	if err != nil {
-		printlnStr("displayfile: " + file + ": No such file or directory")
+		printlnStr("ERROR: open " + file + ": no such file or directory")
 		return
 	}
 	os.Stdout.Write(f)
+	ft.PrintRune('\n')
 }
